@@ -7,6 +7,7 @@ export default defineConfig({
     jsxImportSource: "react",
   },
   resolve: {
+    // hi
     alias: {
       "@": path.resolve(__dirname),
     },
