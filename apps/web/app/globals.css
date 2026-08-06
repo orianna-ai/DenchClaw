@@ -2318,3 +2318,12 @@ td:has(> div > :empty) {
   background: rgba(245, 158, 11, 0.04);
   transition: box-shadow 2s ease-out, background 2s ease-out;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .enrich-fade-in {
+    animation: none;
+  }
+  .enrich-glow {
+    transition: none;
+  }
+}
