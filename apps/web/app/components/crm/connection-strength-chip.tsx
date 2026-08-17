@@ -43,6 +43,9 @@ export function ConnectionStrengthChip({
         }}
       />
       {showLabel && bucket.label}
+      {showLabel && typeof score === "number" && (
+        <span style={{ opacity: 0.75 }}>({Math.round(score)})</span>
+      )}
     </span>
   );
 }
