@@ -17,7 +17,7 @@ export function ConnectionStrengthChip({
 }) {
   const bucket = getConnectionStrengthBucket(score);
   const dotSize = size === "sm" ? 6 : 8;
-  const padding = size === "sm" ? "1px 6px" : "2px 8px";
+  const padding = size === "sm" ? "2px 8px" : "4px 12px";
   const fontSize = size === "sm" ? 10 : 11;
 
   return (
