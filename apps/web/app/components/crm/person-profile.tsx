@@ -361,6 +361,7 @@ function PersonHeader({
                 className="hover:underline truncate"
                 style={{ color: "var(--color-text-muted)" }}
               >
+                {"\u2709\ufe0e "}
                 {person.email}
               </a>
             )}
