@@ -281,6 +281,7 @@ function CompanyHeader({
           >
             {company.website && (
               <a href={company.website} target="_blank" rel="noreferrer" className="hover:underline">
+                {"\ud83c\udf10 "}
                 {company.website.replace(/^https?:\/\//, "")}
               </a>
             )}
