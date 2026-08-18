@@ -11,6 +11,7 @@ import type {
 } from "../../types/cron";
 import type { CronDashboardView } from "@/lib/workspace-links";
 import type { CalendarMode } from "@/lib/object-filters";
+import { PipelineStatsCard } from "../health/pipeline-stats-card";
 
 type HeartbeatUnit = "m" | "h" | "d";
 
@@ -277,6 +278,10 @@ function OverviewTab({
           icon={<ClockIcon />}
           value={cronWakeCountdown ? `next in ${cronWakeCountdown}` : jobs.length === 0 ? "no jobs" : "idle"}
           subtitle={`${enabledJobs.length} active / ${jobs.length} total jobs`}
+        />
+        <PipelineStatsCard
+          total={jobs.length}
+          failed={jobs.filter((j) => j.state.lastStatus === "error").length}
         />
         <StatusCard
           title="Active Runs"
