@@ -11,6 +11,7 @@ import type {
 } from "../../types/cron";
 import type { CronDashboardView } from "@/lib/workspace-links";
 import type { CalendarMode } from "@/lib/object-filters";
+import { PipelineRunRow } from "../health/pipeline-run-row";
 
 type HeartbeatUnit = "m" | "h" | "d";
 
@@ -242,6 +243,7 @@ export function CronDashboard({
 }
 
 /* ─── Overview tab ─── */
+/* recent-run rows render at the bottom of the overview (see OverviewTab) */
 
 function OverviewTab({
   jobs,
@@ -288,6 +290,9 @@ function OverviewTab({
             if (running.length > 0) return running.map((j) => j.name).join(", ");
             return errorCount > 0 ? `${errorCount} with errors` : "All clear";
           })()}
+          footer={jobs.slice(0, 3).map((j) => (
+            <PipelineRunRow key={j.name} name={j.name} status={j.state.lastStatus ?? "idle"} ms={0} />
+          ))}
         />
       </div>
 
