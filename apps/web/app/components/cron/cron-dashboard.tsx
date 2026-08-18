@@ -290,10 +290,12 @@ function OverviewTab({
             if (running.length > 0) return running.map((j) => j.name).join(", ");
             return errorCount > 0 ? `${errorCount} with errors` : "All clear";
           })()}
-          footer={jobs.slice(0, 3).map((j) => (
+        />
+        <div>
+          {jobs.slice(0, 3).map((j) => (
             <PipelineRunRow key={j.name} name={j.name} status={j.state.lastStatus ?? "idle"} ms={0} />
           ))}
-        />
+        </div>
       </div>
 
       <TimelineSection jobs={enabledJobs} />
